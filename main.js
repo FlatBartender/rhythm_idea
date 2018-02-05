@@ -23,8 +23,7 @@ class Note {
         this.angle_start = angle - width/2
         // And angle stop
         this.angle_end   = angle + width/2
-        // width of the note
-        this.width = width
+        
         let gradient_size = CIRCLE_RADIUS*0.1
         let x_inter = Math.cos(angle + Math.PI/2)*gradient_size
         let y_inter = Math.sin(angle + Math.PI/2)*gradient_size
