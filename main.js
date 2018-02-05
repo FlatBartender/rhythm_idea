@@ -30,8 +30,6 @@ class Note {
         let y_start = GAME_CENTER_Y + y_inter
         let x_end   = GAME_CENTER_X - x_inter
         let y_end   = GAME_CENTER_Y - y_inter
-        console.log(`x_start: ${x_start}, x_end = ${x_end}`)
-        console.log(`y_start: ${y_start}, y_end = ${y_end}`)
         let gradient = ctx.createLinearGradient(x_start, y_start, x_end, y_end)
         switch (affinity) {
             case Note.AFFINITY_ANY:
