@@ -19,7 +19,9 @@ class Note {
         this.valid_window = valid_window
         // angle where this is valid
         this.angle = angle
+        // Additionally, angle start (doesn't change, it's useless to compute it in update()
         this.angle_start = angle - width/2
+        // And angle stop
         this.angle_end   = angle + width/2
         // width of the note
         this.width = width
