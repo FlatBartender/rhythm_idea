@@ -30,29 +30,25 @@ class Note {
         let y_start = GAME_CENTER_Y + y_inter
         let x_end   = GAME_CENTER_X - x_inter
         let y_end   = GAME_CENTER_Y - y_inter
-        let gradient = ctx.createLinearGradient(x_start, y_start, x_end, y_end)
+        let color
         switch (affinity) {
             case Note.AFFINITY_ANY:
-                gradient.addColorStop(0.0, "rgba(0, 255, 0, 0.9)")
-                gradient.addColorStop(1.0, "rgba(0, 255, 0, 0.9)")
-                gradient.addColorStop(0.5, "rgba(0, 255, 0, 1)")
+                color = "0, 255, 0"
                 break
             case Note.AFFINITY_RIGHT:
-                gradient.addColorStop(0.0, "rgba(255, 255, 0, 0.9)")
-                gradient.addColorStop(1.0, "rgba(255, 255, 0, 0.9)")
-                gradient.addColorStop(0.5, "rgba(255, 255, 0, 1)")
+                color = "255, 255, 0"
                 break
             case Note.AFFINITY_LEFT:
-                gradient.addColorStop(0.0, "rgba(255, 0, 255, 0.9)")
-                gradient.addColorStop(1.0, "rgba(255, 0, 255, 0.9)")
-                gradient.addColorStop(0.5, "rgba(255, 0, 255, 1)")
+                color = "255, 0, 255"
                 break
             case Note.AFFINITY_BOTH:
-                gradient.addColorStop(0.0, "rgba(255, 0, 0, 0.9)")
-                gradient.addColorStop(1.0, "rgba(255, 0, 0, 0.9)")
-                gradient.addColorStop(0.5, "rgba(255, 0, 0, 1)")
+                color = "255, 0, 0"
                 break
         }
+        let gradient = ctx.createLinearGradient(x_start, y_start, x_end, y_end)
+        gradient.addColorStop(0.0, `rgba(${color}, 0.9`)
+        gradient.addColorStop(1.0, `rgba(${color}, 0.9`)
+        gradient.addColorStop(0.5, `rgba(${color}, 1.0`)
         this.color = gradient
         this.affinity = affinity
 
