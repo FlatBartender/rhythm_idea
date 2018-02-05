@@ -23,8 +23,14 @@ class Note {
         this.angle_start = angle - width/2
         // And angle stop
         this.angle_end   = angle + width/2
-        
+
+        // @TWEAKME gradient side-fade
         let gradient_size = CIRCLE_RADIUS*0.1
+
+        // Values to create the gradient.
+        // basically, create a segment perpendicular to the note, with length 2*gradient_size
+        // so we it looks like a "ray"
+        // @OPTTWEAK find another way to create the gradient so we can have a proper ray and not a linear thing
         let x_inter = Math.cos(angle + Math.PI/2)*gradient_size
         let y_inter = Math.sin(angle + Math.PI/2)*gradient_size
         let x_start = GAME_CENTER_X + x_inter
@@ -47,8 +53,9 @@ class Note {
                 break
         }
         let gradient = ctx.createLinearGradient(x_start, y_start, x_end, y_end)
-        gradient.addColorStop(0.0, `rgba(${color}, 0.9`)
-        gradient.addColorStop(1.0, `rgba(${color}, 0.9`)
+        // @TWEAKME gradient intensity
+        gradient.addColorStop(0.0, `rgba(${color}, 0.5`)
+        gradient.addColorStop(1.0, `rgba(${color}, 0.5`)
         gradient.addColorStop(0.5, `rgba(${color}, 1.0`)
         this.color = gradient
         this.affinity = affinity
