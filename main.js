@@ -6,20 +6,6 @@ Number.prototype.linear_map = function (in_min, in_max, out_min, out_max) {
     return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
 }
 
-class Stack {
-    constructor() {
-        this.stack = []
-    }
-
-    push(item) {
-        this.stack.unshift(item)
-    }
-
-    pop() {
-        return this.stack.shift()
-    }
-}
-
 // Time between start of appearance and perfect position
 const APPROACH_RATE = 1000
 
